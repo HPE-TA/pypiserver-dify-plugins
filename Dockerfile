@@ -1,4 +1,6 @@
-FROM pypiserver/pypiserver:v2.4
+FROM python:3.12
+
+RUN pip install pypiserver
 
 COPY ./requirements /requirements
 
@@ -14,4 +16,4 @@ RUN pip install wheel \
 VOLUME /packages
 EXPOSE 8080
 
-CMD ["run", "-p", "8080", "/packages"]
+CMD ["pypi-server", "run", "-p", "8080", "/packages"]
