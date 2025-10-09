@@ -5,14 +5,16 @@ RUN pip install pypiserver
 COPY ./requirements /requirements
 
 RUN pip install wheel \
-    && mkdir -p /packages \
-    && pip wheel -r /requirements/openai_api_compatible/requirements.txt -w /packages \
-    && pip wheel -r /requirements/xinference/requirements.txt -w /packages \
-    && pip wheel -r /requirements/json_process/requirements.txt -w /packages \
-    && pip wheel -r /requirements/md_exporter/requirements.txt -w /packages \
-    && pip wheel -r /requirements/dify-pdf-process-plugin/requirements.txt -w /packages \
-    && pip wheel -r /requirements/dify-plugin-agent-mcp_sse/requirements.txt -w /packages \
-    && pip wheel -r /requirements/db_query/requirements.txt -w /packages
+    && mkdir -p /packages
+
+RUN pip wheel -w /packages -r https://raw.githubusercontent.com/langgenius/dify-official-plugins/refs/heads/main/models/openai/requirements.txt
+RUN pip wheel -w /packages -r https://raw.githubusercontent.com/langgenius/dify-official-plugins/refs/heads/main/models/xinference/requirements.txt
+RUN pip wheel -w /packages -r https://raw.githubusercontent.com/langgenius/dify-official-plugins/refs/heads/main/tools/json_process/requirements.txt
+RUN pip wheel -w /packages -r https://raw.githubusercontent.com/bowenliang123/md_exporter/refs/heads/main/requirements.txt
+RUN pip wheel -w /packages -r https://raw.githubusercontent.com/fdb02983rhy/dify-pdf-process-plugin/refs/heads/main/requirements.txt
+RUN pip wheel -w /packages -r https://raw.githubusercontent.com/junjiem/dify-plugin-agent-mcp_sse/refs/heads/main/requirements.txt
+RUN pip wheel -w /packages -r https://raw.githubusercontent.com/junjiem/dify-plugin-tools-mcp_sse/refs/heads/main/requirements.txt
+RUN pip wheel -w /packages -r https://raw.githubusercontent.com/junjiem/dify-plugin-tools-dbquery/refs/heads/main/db_query/requirements.txt
 
 VOLUME /packages
 EXPOSE 8080
