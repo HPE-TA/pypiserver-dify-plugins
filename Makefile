@@ -23,15 +23,12 @@ push-pypiserver: ## Push pypiserver.
 run-pypiserver: ## Run shell in pypiserver.
 	docker run -it --rm \
 		--shm-size=16g \
-		-v $(shell pwd):/work \
-		-w /work \
 		$(IMAGE_NAME):$(IMAGE_TAG) \
 		bash
 
 up-pypiserver: ## Start pypiserver.
 	docker run -d --name pypiserver -p 8080:8080 \
 		--shm-size=16g \
-		-v $(XDG_CACHE_HOME):/root/.cache \
 		$(IMAGE_NAME):$(IMAGE_TAG)
 
 down-pypiserver: ## Stop pypiserver.
