@@ -6,6 +6,7 @@ RUN pip install wheel \
     && mkdir -p /packages
 
 RUN pip wheel -w /packages Janome
+RUN pip wheel -w /packages python-pptx
 
 # Build for dify-plugins
 # Stage 2: Main image based on Python 3.12
