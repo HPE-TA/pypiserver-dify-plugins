@@ -4,6 +4,23 @@
 
 ### Sandbox
 
+- Update the sandbox environment variables in `docker/.env`:
+
+```diff
+--- docker/.env.example 2026-02-18 15:15:56.527218107 +0900
++++ docker/.env 2026-03-12 12:44:21.428724401 +0900
+@@ -1409,7 +1409,8 @@
+ # API side timeout (configure to match the Plugin Daemon side above)
+ PLUGIN_DAEMON_TIMEOUT=600.0
+ # PIP_MIRROR_URL=https://pypi.tuna.tsinghua.edu.cn/simple
+-PIP_MIRROR_URL=
++PIP_MIRROR_URL=http://host.docker.internal:8080/simple
++PIP_TRUSTED_HOST=host.docker.internal
+
+ # https://github.com/langgenius/dify-plugin-daemon/blob/main/.env.example
+ # Plugin storage type, local aws_s3 tencent_cos azure_blob aliyun_oss volcengine_tos
+```
+
 - Add PIP_TRUSTED_HOST to the sandbox environment variables in `docker/docker-compose.yaml`:
 
 ```diff
