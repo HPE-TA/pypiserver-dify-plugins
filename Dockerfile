@@ -9,7 +9,6 @@ RUN pip wheel -w /packages Janome==0.5.0
 RUN pip wheel -w /packages python-pptx==1.0.2
 RUN pip wheel -w /packages nltk==3.9.3
 RUN pip wheel -w /packages beautifulsoup4==4.14.3
-RUN pip wheel -w /packages requests==2.32.5
 
 # Build for dify-plugins
 # Stage 2: Main image based on Python 3.12
@@ -31,6 +30,10 @@ RUN pip wheel -w /packages -r https://raw.githubusercontent.com/langgenius/dify-
     curl -o /manifests/models-openai_api_compatible.yaml https://raw.githubusercontent.com/langgenius/dify-official-plugins/refs/heads/main/models/openai_api_compatible/manifest.yaml
 RUN pip wheel -w /packages -r https://raw.githubusercontent.com/langgenius/dify-official-plugins/refs/heads/main/models/xinference/requirements.txt && \
     curl -o /manifests/models-xinference.yaml https://raw.githubusercontent.com/langgenius/dify-official-plugins/refs/heads/main/models/xinference/manifest.yaml
+RUN pip wheel -w /packages -r https://raw.githubusercontent.com/langgenius/dify-official-plugins/refs/heads/main/models/openai/requirements.txt && \
+    curl -o /manifests/models-openai.yaml https://raw.githubusercontent.com/langgenius/dify-official-plugins/refs/heads/main/models/openai/manifest.yaml
+RUN pip wheel -w /packages -r https://raw.githubusercontent.com/langgenius/dify-official-plugins/refs/heads/main/models/ollama/requirements.txt && \
+    curl -o /manifests/models-ollama.yaml https://raw.githubusercontent.com/langgenius/dify-official-plugins/refs/heads/main/models/ollama/manifest.yaml
 
 # Tools
 RUN pip wheel -w /packages -r https://raw.githubusercontent.com/bowenliang123/md_exporter/refs/tags/3.6.8/requirements.txt
@@ -43,6 +46,12 @@ RUN pip wheel -w /packages -r https://raw.githubusercontent.com/langgenius/dify-
     curl -o /manifests/tools-json_process.yaml https://raw.githubusercontent.com/langgenius/dify-official-plugins/refs/heads/main/tools/json_process/manifest.yaml
 RUN pip wheel -w /packages -r https://raw.githubusercontent.com/langgenius/dify-official-plugins/refs/heads/main/tools/regex/requirements.txt && \
     curl -o /manifests/tools-regex.yaml https://raw.githubusercontent.com/langgenius/dify-official-plugins/refs/heads/main/tools/regex/manifest.yaml
+RUN pip wheel -w /packages -r https://raw.githubusercontent.com/langgenius/dify-official-plugins/refs/heads/main/tools/firecrawl/requirements.txt && \
+    curl -o /manifests/tools-firecrawl.yaml https://raw.githubusercontent.com/langgenius/dify-official-plugins/refs/heads/main/tools/firecrawl/manifest.yaml
+
+# Data Sources
+RUN pip wheel -w /packages -r https://raw.githubusercontent.com/langgenius/dify-official-plugins/refs/heads/main/datasources/firecrawl_datasource/requirements.txt && \
+    curl -o /manifests/datasources-firecrawl_datasource.yaml https://raw.githubusercontent.com/langgenius/dify-official-plugins/refs/heads/main/datasources/firecrawl_datasource/manifest.yaml
 
 # Agent Strategies
 RUN pip wheel -w /packages -r https://raw.githubusercontent.com/hjlarry/dify-plugin-mcp_agent/refs/tags/0.0.1/requirements.txt
