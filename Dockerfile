@@ -46,8 +46,6 @@ RUN pip wheel -w /packages -r https://raw.githubusercontent.com/langgenius/dify-
     curl -o /manifests/tools-json_process.yaml https://raw.githubusercontent.com/langgenius/dify-official-plugins/refs/heads/main/tools/json_process/manifest.yaml
 RUN pip wheel -w /packages -r https://raw.githubusercontent.com/langgenius/dify-official-plugins/refs/heads/main/tools/regex/requirements.txt && \
     curl -o /manifests/tools-regex.yaml https://raw.githubusercontent.com/langgenius/dify-official-plugins/refs/heads/main/tools/regex/manifest.yaml
-RUN pip wheel -w /packages -r https://raw.githubusercontent.com/langgenius/dify-official-plugins/refs/heads/main/tools/firecrawl/requirements.txt && \
-    curl -o /manifests/tools-firecrawl.yaml https://raw.githubusercontent.com/langgenius/dify-official-plugins/refs/heads/main/tools/firecrawl/manifest.yaml
 
 # Data Sources
 RUN pip wheel -w /packages -r https://raw.githubusercontent.com/langgenius/dify-official-plugins/refs/heads/main/datasources/firecrawl_datasource/requirements.txt && \

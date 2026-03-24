@@ -12,7 +12,7 @@ NOW = $(shell date '+%Y%m%d-%H%M%S')
 # pypiserver
 #######################################################################################################################
 IMAGE_NAME = imokuri123/pypiserver
-IMAGE_TAG = v0.0.13
+IMAGE_TAG = v0.0.14
 
 build-pypiserver: ## Build pypiserver.
 	docker build -t $(IMAGE_NAME):$(IMAGE_TAG) -f Dockerfile .
