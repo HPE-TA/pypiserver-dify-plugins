@@ -45,6 +45,16 @@ RUN pip wheel -w /packages -r https://raw.githubusercontent.com/langgenius/dify-
     curl -o /manifests/tools-json_process.yaml https://raw.githubusercontent.com/langgenius/dify-official-plugins/refs/heads/main/tools/json_process/manifest.yaml
 RUN pip wheel -w /packages -r https://raw.githubusercontent.com/langgenius/dify-official-plugins/refs/heads/main/tools/regex/requirements.txt && \
     curl -o /manifests/tools-regex.yaml https://raw.githubusercontent.com/langgenius/dify-official-plugins/refs/heads/main/tools/regex/manifest.yaml
+RUN pip wheel -w /packages -r https://raw.githubusercontent.com/langgenius/dify-official-plugins/refs/heads/main/tools/dify_extractor/requirements.txt && \
+    curl -o /manifests/tools-dify_extractor.yaml https://raw.githubusercontent.com/langgenius/dify-official-plugins/refs/heads/main/tools/dify_extractor/manifest.yaml
+RUN pip wheel -w /packages -r https://raw.githubusercontent.com/langgenius/dify-official-plugins/refs/heads/main/tools/general_chunk/requirements.txt && \
+    curl -o /manifests/tools-general_chunk.yaml https://raw.githubusercontent.com/langgenius/dify-official-plugins/refs/heads/main/tools/general_chunk/manifest.yaml
+RUN pip wheel -w /packages -r https://raw.githubusercontent.com/langgenius/dify-official-plugins/refs/heads/main/tools/parent_child_chunk/requirements.txt && \
+    curl -o /manifests/tools-parent_child_chunk.yaml https://raw.githubusercontent.com/langgenius/dify-official-plugins/refs/heads/main/tools/parent_child_chunk/manifest.yaml
+RUN pip wheel -w /packages -r https://raw.githubusercontent.com/langgenius/dify-official-plugins/refs/heads/main/tools/qa_chunk/requirements.txt && \
+    curl -o /manifests/tools-qa_chunk.yaml https://raw.githubusercontent.com/langgenius/dify-official-plugins/refs/heads/main/tools/qa_chunk/manifest.yaml
+RUN pip wheel -w /packages -r https://raw.githubusercontent.com/langgenius/dify-official-plugins/refs/heads/main/tools/chart/requirements.txt && \
+    curl -o /manifests/tools-chart.yaml https://raw.githubusercontent.com/langgenius/dify-official-plugins/refs/heads/main/tools/chart/manifest.yaml
 
 # Data Sources
 RUN pip wheel -w /packages -r https://raw.githubusercontent.com/langgenius/dify-official-plugins/refs/heads/main/datasources/firecrawl_datasource/requirements.txt && \
