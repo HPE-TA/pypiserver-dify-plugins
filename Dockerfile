@@ -52,6 +52,9 @@ RUN pip wheel -w /packages -r https://raw.githubusercontent.com/langgenius/dify-
 # Data Sources
 RUN pip wheel -w /packages -r https://raw.githubusercontent.com/langgenius/dify-official-plugins/refs/heads/main/datasources/firecrawl_datasource/requirements.txt && \
     curl -o /manifests/datasources-firecrawl_datasource.yaml https://raw.githubusercontent.com/langgenius/dify-official-plugins/refs/heads/main/datasources/firecrawl_datasource/manifest.yaml
+# BUG: firecrawl datasource plugin does not update to latest code on market place.
+# https://marketplace.dify.ai/plugin/langgenius/firecrawl_datasource
+RUN pip wheel -w /packages dify_plugin==0.5.0b14
 
 # Agent Strategies
 RUN pip wheel -w /packages -r https://raw.githubusercontent.com/hjlarry/dify-plugin-mcp_agent/refs/tags/0.0.1/requirements.txt
