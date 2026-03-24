@@ -7,7 +7,6 @@ RUN pip install wheel \
 
 RUN pip wheel -w /packages Janome==0.5.0
 RUN pip wheel -w /packages python-pptx==1.0.2
-RUN pip wheel -w /packages nltk==3.9.3
 RUN pip wheel -w /packages beautifulsoup4==4.14.3
 
 # Build for dify-plugins
