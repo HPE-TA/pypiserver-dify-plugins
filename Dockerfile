@@ -34,7 +34,7 @@ BASE_URL="https://raw.githubusercontent.com/langgenius/dify-official-plugins/ref
 mkdir -p /tmp/plugin
 curl -sf -o /tmp/plugin/pyproject.toml "${BASE_URL}/${PLUGIN_PATH}/pyproject.toml"
 curl -sf -o /tmp/plugin/uv.lock "${BASE_URL}/${PLUGIN_PATH}/uv.lock"
-cd /tmp/plugin && uv export --frozen --no-hashes --no-dev -o requirements.txt
+cd /tmp/plugin && uv export --frozen --no-hashes -o requirements.txt
 pip wheel -w /packages -r /tmp/plugin/requirements.txt
 if [ -n "$MANIFEST_NAME" ]; then
     curl -sf -o "/manifests/${MANIFEST_NAME}.yaml" "${BASE_URL}/${PLUGIN_PATH}/manifest.yaml"
