@@ -1,13 +1,13 @@
 # Build for dify-sandbox
-# Stage 1: Build wheels requiring Python 3.10
-FROM python:3.10 AS builder-310
+# Stage 1: Build wheels requiring Python 3.14
+FROM python:3.14 AS builder-314
 
 RUN pip install wheel \
     && mkdir -p /packages
 
-RUN pip wheel -w /packages Janome==0.5.0
-RUN pip wheel -w /packages python-pptx==1.0.2
-RUN pip wheel -w /packages beautifulsoup4==4.14.3
+#RUN pip wheel -w /packages Janome==0.5.0
+#RUN pip wheel -w /packages python-pptx==1.0.2
+#RUN pip wheel -w /packages beautifulsoup4==4.14.3
 
 # Build for dify-plugins
 # Stage 2: Main image based on Python 3.12
@@ -18,8 +18,8 @@ RUN pip install pypiserver uv
 RUN pip install wheel \
     && mkdir -p /packages
 
-# Copy packages built with Python 3.10
-COPY --from=builder-310 /packages /packages
+# Copy packages built with Python 3.14
+COPY --from=builder-314 /packages /packages
 
 # You can check dify official plugin's version by the menifest file.
 RUN mkdir -p /manifests
@@ -34,7 +34,7 @@ BASE_URL="https://raw.githubusercontent.com/langgenius/dify-official-plugins/ref
 mkdir -p /tmp/plugin
 curl -sf -o /tmp/plugin/pyproject.toml "${BASE_URL}/${PLUGIN_PATH}/pyproject.toml"
 curl -sf -o /tmp/plugin/uv.lock "${BASE_URL}/${PLUGIN_PATH}/uv.lock"
-cd /tmp/plugin && uv export --frozen --no-hashes -o requirements.txt
+cd /tmp/plugin && uv export --frozen --no-hashes --all-groups -o requirements.txt
 pip wheel -w /packages -r /tmp/plugin/requirements.txt
 if [ -n "$MANIFEST_NAME" ]; then
     curl -sf -o "/manifests/${MANIFEST_NAME}.yaml" "${BASE_URL}/${PLUGIN_PATH}/manifest.yaml"
