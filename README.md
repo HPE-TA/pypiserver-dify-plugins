@@ -1,8 +1,8 @@
 # Pypi Server for Dify
 
 - Dify: v1.14.2
-       - langgenius/dify-sandbox:0.2.15: Python 3.14.4
-       - langgenius/dify-plugin-daemon:0.6.1-local: Python 3.12.3
+  - langgenius/dify-sandbox:0.2.15: Python 3.14.4
+  - langgenius/dify-plugin-daemon:0.6.1-local: Python 3.12.3
 
 ## Dify Configuration Update
 
