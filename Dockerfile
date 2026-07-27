@@ -77,4 +77,4 @@ RUN pip wheel -w /packages -r https://raw.githubusercontent.com/hjlarry/dify-plu
 VOLUME /packages
 EXPOSE 8080
 
-CMD ["pypi-server", "run", "-p", "8080", "/packages"]
+CMD ["pypi-server", "run", "--port", "8080", "--disable-fallback", "/packages"]

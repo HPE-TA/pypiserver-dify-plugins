@@ -40,6 +40,3 @@ ps-pypiserver: ## Status pypiserver.
 
 log-pypiserver: ## Log pypiserver.
 	docker logs -f pypiserver || :
-
-
-
