@@ -31,6 +31,9 @@ up-pypiserver: ## Start pypiserver.
 		--shm-size=16g \
 		$(IMAGE_NAME):$(IMAGE_TAG)
 
+exec-pypiserver: ## Exec pypiserver.
+	docker exec -it pypiserver bash
+
 down-pypiserver: ## Stop pypiserver.
 	docker stop pypiserver || :
 	docker rm pypiserver || :
