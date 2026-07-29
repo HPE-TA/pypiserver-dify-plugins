@@ -62,6 +62,7 @@ RUN build-plugin-wheels.sh tools/general_chunk tools-general_chunk
 RUN build-plugin-wheels.sh tools/parent_child_chunk tools-parent_child_chunk
 RUN build-plugin-wheels.sh tools/qa_chunk tools-qa_chunk
 RUN build-plugin-wheels.sh tools/chart tools-chart
+RUN build-plugin-wheels.sh tools/neo4j tools-neo4j
 
 # Data Sources
 RUN build-plugin-wheels.sh datasources/firecrawl_datasource datasources-firecrawl_datasource
