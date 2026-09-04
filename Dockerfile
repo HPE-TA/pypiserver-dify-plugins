@@ -50,7 +50,7 @@ RUN build-plugin-wheels.sh models/openai models-openai
 RUN build-plugin-wheels.sh models/ollama models-ollama
 
 # Tools
-RUN pip wheel -w /packages -r https://raw.githubusercontent.com/bowenliang123/md_exporter/refs/tags/3.6.8/requirements.txt
+RUN pip wheel -w /packages -r https://raw.githubusercontent.com/bowenliang123/md_exporter/refs/tags/4.0.0/requirements.txt
 RUN pip wheel -w /packages -r https://raw.githubusercontent.com/fdb02983rhy/dify-pdf-process-plugin/refs/tags/1.0.0/requirements.txt
 RUN pip wheel -w /packages -r https://raw.githubusercontent.com/junjiem/dify-plugin-tools-dbquery/refs/tags/0.0.11/db_query/requirements.txt
 RUN pip wheel -w /packages -r https://raw.githubusercontent.com/junjiem/dify-plugin-tools-mcp_sse/refs/tags/0.2.3/requirements.txt
